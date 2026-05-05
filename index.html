@@ -67,6 +67,25 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Animasi Teks Berjalan (Marquee) */
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .animate-marquee {
+            display: inline-block;
+            padding-left: 100%; /* Mulai dari luar layar sebelah kanan */
+            animation: marquee 20s linear infinite; /* Kecepatan animasi 20 detik */
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen bg-brand-main font-sans antialiased overflow-x-hidden">
@@ -132,11 +151,13 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brand-dark py-4 px-6 text-center w-full mt-auto z-20 border-t border-white/5">
-        <p class="text-gray-400 text-[10px] sm:text-xs md:text-sm font-medium">
-            © 2026 Al Irsyad Al Islamiyyah Karawang. <br class="sm:hidden"> All rights reserved. WEC
-        </p>
+    <!-- Footer dengan Efek Teks Berjalan -->
+    <footer class="bg-brand-dark py-4 w-full mt-auto z-20 border-t border-white/5 marquee-container">
+        <div class="animate-marquee">
+            <p class="text-gray-300 text-[10px] sm:text-xs md:text-sm font-medium inline-block">
+                © 2026 Al Irsyad Al Islamiyyah Karawang. All rights reserved. WEC &nbsp;&nbsp; &bull; &nbsp;&nbsp; <span class="text-brand-yellow font-bold">Ayo sekolah di Al Irsyad aja!</span>
+            </p>
+        </div>
     </footer>
 
     <script>
